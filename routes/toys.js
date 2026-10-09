@@ -7,17 +7,11 @@ const router = express.Router();
 
 router.get("/", async (req, res) => {
   const limit = 10;
-  const skip = req.query.skip || 0;
-  const category = req.query.category;
-  const filterFind = {};
-
-  if (category) {
-    filterFind.category = category;
-  }
+  const skip = (Number(req.query.skip) || 0) * limit;
 
   try {
     const data = await ToyModel
-      .find(filterFind)
+      .find({})
       .limit(limit)
       .skip(skip);
 
@@ -32,7 +26,7 @@ router.get("/", async (req, res) => {
 
 router.get("/search", async (req, res) => {
   const limit = 10;
-  const skip = req.query.skip || 0;
+  const skip = (Number(req.query.skip) || 0) * limit;
 
   try {
     const search = req.query.s;
@@ -42,6 +36,7 @@ router.get("/search", async (req, res) => {
     }
 
     const searchExp = new RegExp(search, "i");
+
     const data = await ToyModel
       .find({
         $or: [
@@ -60,12 +55,14 @@ router.get("/search", async (req, res) => {
   }
 });
 
+
 router.get("/category/:catname", async (req, res) => {
   const limit = 10;
-  const skip = req.query.skip || 0;
+  const skip = (Number(req.query.skip) || 0) * limit;
 
   try {
     const catname = req.params.catname;
+
     const data = await ToyModel
       .find({ category: catname })
       .limit(limit)
@@ -82,7 +79,8 @@ router.get("/category/:catname", async (req, res) => {
 
 router.get("/prices", async (req, res) => {
   const limit = 10;
-  const skip = req.query.skip || 0;
+  const skip = (Number(req.query.skip) || 0) * limit;
+
   const min = req.query.min;
   const max = req.query.max;
   const filterFind = {};
@@ -130,6 +128,7 @@ router.get("/count", async (req, res) => {
 router.get("/single/:id", async (req, res) => {
   try {
     const id = req.params.id;
+
     const data = await ToyModel.findOne({ _id: id });
 
     if (!data) {
@@ -177,6 +176,7 @@ router.put("/:id", auth, async (req, res) => {
 
   try {
     const id = req.params.id;
+
     const data = await ToyModel.updateOne(
       { _id: id, user_id: req.tokenData._id },
       req.body

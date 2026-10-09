@@ -1,0 +1,44 @@
+[{
+  "_id": {
+    "$oid": "64c619db94aeb1268edbdd88"
+  },
+  "name": "Red bamba",
+  "price": 5
+},
+{
+  "_id": {
+    "$oid": "64c61a2894aeb1268edbdd89"
+  },
+  "name": "cola",
+  "price": 7
+},
+{
+  "_id": {
+    "$oid": "64c61a2894aeb1268edbdd8a"
+  },
+  "name": "black coffee",
+  "price": 12
+},
+{
+  "_id": {
+    "$oid": "64c6292c34a5aaeec87775ce"
+  },
+  "name": "cookies",
+  "price": 30
+},
+{
+  "_id": {
+    "$oid": "6584054c9bb210d0ecfffdb2"
+  },
+  "name": "milkshake",
+  "price": 80,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "658409d595a2fe6ffd174315"
+  },
+  "name": "Shokoshake",
+  "price": 30,
+  "__v": 0
+}]

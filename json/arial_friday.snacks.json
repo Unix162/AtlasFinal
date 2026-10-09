@@ -1,0 +1,100 @@
+[{
+  "_id": {
+    "$oid": "6a6c645b3ec814fef6066f9d"
+  },
+  "name": "Lays Classic Potato Chips",
+  "price": 3.99,
+  "cals": 160,
+  "company": "Frito-Lay",
+  "user_id": "60d5ecb8b5c9c22b14e1b8a1"
+},
+{
+  "_id": {
+    "$oid": "6a6c645b3ec814fef6066f9e"
+  },
+  "name": "Doritos Nacho Cheese",
+  "price": 4.49,
+  "cals": 150,
+  "company": "Frito-Lay",
+  "user_id": "60d5ecb8b5c9c22b14e1b8a2"
+},
+{
+  "_id": {
+    "$oid": "6a6c645b3ec814fef6066f9f"
+  },
+  "name": "Pringles Original",
+  "price": 2.79,
+  "cals": 150,
+  "company": "Kellogg's",
+  "user_id": "60d5ecb8b5c9c22b14e1b8a3"
+},
+{
+  "_id": {
+    "$oid": "6a6c645b3ec814fef6066fa0"
+  },
+  "name": "Cheetos Crunchy",
+  "price": 3.89,
+  "cals": 160,
+  "company": "Frito-Lay",
+  "user_id": "60d5ecb8b5c9c22b14e1b8a4"
+},
+{
+  "_id": {
+    "$oid": "6a6c645b3ec814fef6066fa1"
+  },
+  "name": "Snickers Chocolate Bar",
+  "price": 1.49,
+  "cals": 215,
+  "company": "Mars",
+  "user_id": "60d5ecb8b5c9c22b14e1b8a5"
+},
+{
+  "_id": {
+    "$oid": "6a6c645b3ec814fef6066fa2"
+  },
+  "name": "Oreo Chocolate Sandwich Cookies",
+  "price": 4.29,
+  "cals": 140,
+  "company": "Mondelez International",
+  "user_id": "60d5ecb8b5c9c22b14e1b8a6"
+},
+{
+  "_id": {
+    "$oid": "6a6c645b3ec814fef6066fa3"
+  },
+  "name": "Kit Kat Milk Chocolate Wafer",
+  "price": 1.39,
+  "cals": 218,
+  "company": "Nestle",
+  "user_id": "60d5ecb8b5c9c22b14e1b8a7"
+},
+{
+  "_id": {
+    "$oid": "6a6c645b3ec814fef6066fa4"
+  },
+  "name": "Twix Caramel Cookie Bars",
+  "price": 1.49,
+  "cals": 250,
+  "company": "Mars",
+  "user_id": "60d5ecb8b5c9c22b14e1b8a8"
+},
+{
+  "_id": {
+    "$oid": "6a6c645b3ec814fef6066fa5"
+  },
+  "name": "Goldfish Baked Cheddar Crackers",
+  "price": 2.99,
+  "cals": 140,
+  "company": "Pepperidge Farm",
+  "user_id": "60d5ecb8b5c9c22b14e1b8a9"
+},
+{
+  "_id": {
+    "$oid": "6a6c645b3ec814fef6066fa6"
+  },
+  "name": "Ruffles Cheddar & Sour Cream",
+  "price": 4.19,
+  "cals": 160,
+  "company": "Frito-Lay",
+  "user_id": "60d5ecb8b5c9c22b14e1b8aa"
+}]

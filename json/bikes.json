@@ -1,0 +1,50 @@
+[{
+  "_id": {
+    "$oid": "659bdf605ab4e5d36c142112"
+  },
+  "name": "isuzu",
+  "color": "red",
+  "year": 1990,
+  "img_url": "",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "659bdf6c5ab4e5d36c142114"
+  },
+  "name": "honda",
+  "color": "silver",
+  "year": 2020,
+  "img_url": "",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "659bdfae5ab4e5d36c142117"
+  },
+  "name": "BMW",
+  "color": "BLACK",
+  "year": 2018,
+  "img_url": "",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "659bdfba5ab4e5d36c142119"
+  },
+  "name": "TESLA",
+  "color": "SILVEr",
+  "year": 2022,
+  "img_url": "",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "659bdfcb5ab4e5d36c14211b"
+  },
+  "name": "VISPA",
+  "color": "Blue",
+  "year": 2022,
+  "img_url": "",
+  "__v": 0
+}]

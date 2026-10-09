@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Toys API | Documentation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Toys API Documentation</title>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <style>
+
     body {
       background: #f5f7fb;
       color: #263248;
@@ -16,7 +19,7 @@
     .hero {
       background: linear-gradient(120deg, #182b56, #3356a4);
       color: white;
-      padding: 3.5rem 0;
+      padding: 3rem 0;
     }
 
     .card {
@@ -74,53 +77,29 @@
     footer {
       color: #66758c;
     }
+
   </style>
+
 </head>
 
 <body>
 
+
+  <!-- Header -->
+
   <header class="hero">
     <div class="container">
-      <span class="badge bg-light text-primary mb-3">
-        Node.js · Express · MongoDB
-      </span>
 
-      <h1 class="display-5 fw-bold">
+      <h1 class="display-5 fw-bold mb-0">
         Toys API Documentation
       </h1>
 
-      <p class="lead mb-0">
-        API reference for toys, users, pagination and authentication.
-      </p>
     </div>
   </header>
 
 
+
   <main class="container py-5">
-
-    <!-- Getting Started -->
-
-    <section class="card p-4 mb-4">
-
-      <h2 class="h4">Getting started</h2>
-
-      <p>
-        API Base URL:
-        <code>https://atlas-final-tau.vercel.app</code>
-      </p>
-
-      <p class="mb-2">
-        Responses are returned as JSON.
-        Requests with a JSON body should include
-        <code>Content-Type: application/json</code>.
-      </p>
-
-      <p class="mb-0">
-        For protected routes, log in first and send the received JWT token
-        in the <code>x-api-key</code> request header.
-      </p>
-
-    </section>
 
 
     <!-- Toys API -->
@@ -144,198 +123,371 @@
 
           <tbody>
 
+
+            <!-- GET ALL TOYS -->
+
             <tr>
+
               <td>
                 <span class="method text-success">GET</span>
               </td>
 
-              <td class="route">/toys</td>
+              <td class="route">
+                /toys
+              </td>
 
               <td>
-                Returns all toys, 10 per page.
+                Returns all toys from the database.
+                Returns 10 toys per page.
               </td>
 
               <td>
                 <code>skip</code> (optional):
-                zero-based page number; default 0.
+                Page number, starting from 0.
+
+                <br><br>
+
+                Example:
+                <br>
+                <code>/toys?skip=0</code>
+
                 <br>
                 <code>/toys?skip=1</code>
-                returns the second page.
               </td>
+
             </tr>
 
 
+
+            <!-- SEARCH TOYS -->
+
             <tr>
+
               <td>
                 <span class="method text-success">GET</span>
               </td>
 
-              <td class="route">/toys/search</td>
-
-              <td>
-                Searches toy <code>name</code> or
-                <code>info</code> (case-insensitive).
-                Returns up to 10 results per page.
+              <td class="route">
+                /toys/search
               </td>
 
               <td>
-                <code>s</code> (required): search text.
+                Search toys by name or info.
+
                 <br>
-                <code>skip</code> (optional): page number.
+
+                Search is case-insensitive.
+
                 <br>
+
+                Returns up to 10 toys per page.
+              </td>
+
+              <td>
+                <code>s</code> (required):
+                Search text.
+
+                <br>
+
+                <code>skip</code> (optional):
+                Page number.
+
+                <br><br>
+
                 Example:
+                <br>
+
                 <code>/toys/search?s=lego&amp;skip=0</code>
               </td>
+
             </tr>
 
 
+
+            <!-- CATEGORY -->
+
             <tr>
+
               <td>
                 <span class="method text-success">GET</span>
               </td>
 
-              <td class="route">/toys/category/:catname</td>
-
-              <td>
-                Returns toys in the specified category
-                (exact match), up to 10 per page.
+              <td class="route">
+                /toys/category/:catname
               </td>
 
               <td>
-                <code>catname</code> (required): category name.
+                Returns toys from a specific category.
+
                 <br>
-                <code>skip</code> (optional): page number.
+
+                Category name must match the stored category.
+
                 <br>
+
+                Supports pagination.
+              </td>
+
+              <td>
+                <code>catname</code> (required):
+                Category name.
+
+                <br>
+
+                <code>skip</code> (optional):
+                Page number.
+
+                <br><br>
+
                 Example:
+                <br>
+
                 <code>/toys/category/Lego?skip=0</code>
               </td>
+
             </tr>
 
 
+
+            <!-- PRICE RANGE -->
+
             <tr>
+
               <td>
                 <span class="method text-success">GET</span>
               </td>
 
-              <td class="route">/toys/prices</td>
-
-              <td>
-                Returns toys within a price range,
-                up to 10 per page.
+              <td class="route">
+                /toys/prices
               </td>
 
               <td>
-                <code>min</code> (optional): minimum price.
+                Returns toys within a specified price range.
+
                 <br>
-                <code>max</code> (optional): maximum price.
+
+                Returns up to 10 toys per page.
+              </td>
+
+              <td>
+                <code>min</code> (optional):
+                Minimum price.
+
                 <br>
-                <code>skip</code> (optional): page number.
+
+                <code>max</code> (optional):
+                Maximum price.
+
                 <br>
+
+                <code>skip</code> (optional):
+                Page number.
+
+                <br><br>
+
                 Example:
+                <br>
+
                 <code>/toys/prices?min=50&amp;max=200&amp;skip=0</code>
               </td>
+
             </tr>
 
 
+
+            <!-- COUNT -->
+
             <tr>
+
               <td>
                 <span class="method text-success">GET</span>
               </td>
 
-              <td class="route">/toys/count</td>
+              <td class="route">
+                /toys/count
+              </td>
 
               <td>
-                Returns the total number of toys.
+                Returns the total number of toys in the database.
               </td>
 
               <td>
                 No body.
-                <br>
+
+                <br><br>
+
                 Example response:
+
+                <br>
+
                 <code>{"count":12}</code>
               </td>
+
             </tr>
 
 
+
+            <!-- SINGLE TOY -->
+
             <tr>
+
               <td>
                 <span class="method text-success">GET</span>
               </td>
 
-              <td class="route">/toys/single/:id</td>
-
-              <td>
-                Returns one toy by its MongoDB ID.
+              <td class="route">
+                /toys/single/:id
               </td>
 
               <td>
-                <code>id</code> (required): toy ID.
-                <br>
+                Returns a single toy by its MongoDB ID.
+              </td>
+
+              <td>
+                <code>id</code> (required):
+                Toy ID.
+
+                <br><br>
+
                 No body.
               </td>
+
             </tr>
 
 
+
+            <!-- ADD TOY -->
+
             <tr>
+
               <td>
                 <span class="method text-primary">POST</span>
               </td>
 
-              <td class="route">/toys</td>
+              <td class="route">
+                /toys
+              </td>
 
               <td>
-                Creates a toy for the authenticated user.
+                Creates a new toy in the database.
+
                 <br>
+
+                The toy belongs to the authenticated user.
+
+                <br><br>
+
                 <strong>JWT required.</strong>
               </td>
 
               <td>
-                JSON toy object (example below).
+                JSON toy object.
+
+                <br>
+
                 <code>user_id</code> is assigned automatically.
+
+                <br><br>
+
+                Requires:
+
+                <br>
+
+                <code>x-api-key</code>
               </td>
+
             </tr>
 
 
+
+            <!-- UPDATE TOY -->
+
             <tr>
+
               <td>
                 <span class="method text-warning">PUT</span>
               </td>
 
-              <td class="route">/toys/:id</td>
+              <td class="route">
+                /toys/:id
+              </td>
 
               <td>
-                Updates a toy owned by the authenticated user.
+                Updates an existing toy.
+
                 <br>
+
+                Users can update only their own toys.
+
+                <br><br>
+
                 <strong>JWT required.</strong>
               </td>
 
               <td>
-                <code>id</code>: toy ID.
+                <code>id</code>:
+                Toy ID.
+
                 <br>
-                JSON toy object (example below).
+
+                JSON toy object.
+
+                <br><br>
+
+                Requires:
+
+                <br>
+
+                <code>x-api-key</code>
               </td>
+
             </tr>
 
 
+
+            <!-- DELETE TOY -->
+
             <tr>
+
               <td>
                 <span class="method text-danger">DELETE</span>
               </td>
 
-              <td class="route">/toys/:id</td>
+              <td class="route">
+                /toys/:id
+              </td>
 
               <td>
-                Deletes a toy owned by the authenticated user.
+                Deletes a toy from the database.
+
                 <br>
+
+                Users can delete only their own toys.
+
+                <br><br>
+
                 <strong>JWT required.</strong>
               </td>
 
               <td>
-                <code>id</code>: toy ID.
-                <br>
+                <code>id</code>:
+                Toy ID.
+
+                <br><br>
+
                 No body.
+
+                <br><br>
+
+                Requires:
+
+                <br>
+
+                <code>x-api-key</code>
               </td>
+
             </tr>
+
 
           </tbody>
 
@@ -344,6 +496,8 @@
       </div>
 
     </section>
+
+
 
 
     <!-- Users API -->
@@ -367,42 +521,81 @@
 
           <tbody>
 
+
+            <!-- REGISTER -->
+
             <tr>
+
               <td>
                 <span class="method text-primary">POST</span>
               </td>
 
-              <td class="route">/users</td>
+              <td class="route">
+                /users
+              </td>
 
               <td>
                 Registers a new user.
+
+                <br>
+
                 Password is stored as a bcrypt hash.
               </td>
 
               <td>
-                <code>name</code>,
-                <code>email</code>,
-                <code>password</code> (JSON).
+                JSON object containing:
+
+                <br>
+
+                <code>name</code>
+
+                <br>
+
+                <code>email</code>
+
+                <br>
+
+                <code>password</code>
               </td>
+
             </tr>
 
 
+
+            <!-- LOGIN -->
+
             <tr>
+
               <td>
                 <span class="method text-primary">POST</span>
               </td>
 
-              <td class="route">/users/login</td>
-
-              <td>
-                Authenticates a user and returns a JWT token.
+              <td class="route">
+                /users/login
               </td>
 
               <td>
-                <code>email</code>,
-                <code>password</code> (JSON).
+                Authenticates a user.
+
+                <br>
+
+                Returns a JWT token after successful login.
               </td>
+
+              <td>
+                JSON object containing:
+
+                <br>
+
+                <code>email</code>
+
+                <br>
+
+                <code>password</code>
+              </td>
+
             </tr>
+
 
           </tbody>
 
@@ -413,20 +606,33 @@
     </section>
 
 
+
+
     <!-- Request Body Examples -->
 
     <section class="row g-4 mb-4">
+
+
+      <!-- Toy Request Body -->
 
       <div class="col-lg-6">
 
         <div class="card p-4 h-100">
 
-          <h2 class="h4">Toy request body</h2>
+          <h2 class="h4">
+            Toy Request Body
+          </h2>
 
           <p>
-            Use this JSON for
-            <code>POST /toys</code> and
-            <code>PUT /toys/:id</code>.
+            Use this JSON for:
+
+            <br>
+
+            <code>POST /toys</code>
+
+            <br>
+
+            <code>PUT /toys/:id</code>
           </p>
 
           <pre>{
@@ -438,11 +644,22 @@
 }</pre>
 
           <p class="mt-3 mb-0 small text-muted">
+
             <code>name</code>,
             <code>info</code> and
-            <code>category</code>: 2–99 characters.
-            <code>price</code>: 1–999.
-            <code>img_url</code>: optional, up to 200 characters.
+            <code>category</code>:
+            2–99 characters.
+
+            <br>
+
+            <code>price</code>:
+            1–999.
+
+            <br>
+
+            <code>img_url</code>:
+            Optional, up to 200 characters.
+
           </p>
 
         </div>
@@ -450,15 +667,24 @@
       </div>
 
 
+
+      <!-- User Request Body -->
+
       <div class="col-lg-6">
 
         <div class="card p-4 h-100">
 
-          <h2 class="h4">User request bodies</h2>
+          <h2 class="h4">
+            User Request Bodies
+          </h2>
+
 
           <p class="mb-2">
+
             <strong>Register:</strong>
+
             <code>POST /users</code>
+
           </p>
 
           <pre>{
@@ -467,9 +693,13 @@
   "password": "examplePassword123"
 }</pre>
 
+
           <p class="mt-3 mb-2">
+
             <strong>Login:</strong>
+
             <code>POST /users/login</code>
+
           </p>
 
           <pre>{
@@ -481,23 +711,35 @@
 
       </div>
 
+
     </section>
+
+
 
 
     <!-- Authentication -->
 
     <section class="card p-4 mb-4">
 
-      <h2 class="h4">Authentication &amp; permissions</h2>
+      <h2 class="h4">
+        Authentication &amp; Permissions
+      </h2>
 
       <p>
-        Log in with <code>POST /users/login</code>,
-        copy the returned JWT token,
-        and include this header when adding,
-        editing or deleting toys:
+        Login using <code>POST /users/login</code>.
+
+        <br>
+
+        After successful login, the server returns a JWT token.
+
+        <br>
+
+        The token must be included in the request headers
+        when adding, updating or deleting toys.
       </p>
 
       <pre>x-api-key: YOUR_JWT_TOKEN</pre>
+
 
       <div class="table-responsive mt-3">
 
@@ -507,14 +749,20 @@
             <tr>
               <th>Action</th>
               <th>Visitor</th>
-              <th>Authenticated user</th>
+              <th>Authenticated User</th>
             </tr>
           </thead>
 
           <tbody>
 
             <tr>
-              <td>View and search toys</td>
+              <td>View toys</td>
+              <td>Yes</td>
+              <td>Yes</td>
+            </tr>
+
+            <tr>
+              <td>Search toys</td>
               <td>Yes</td>
               <td>Yes</td>
             </tr>
@@ -543,18 +791,18 @@
 
       </div>
 
-      <p class="small text-muted mt-3 mb-0">
-        This project does not implement a separate administrator role.
-      </p>
-
     </section>
+
+
 
 
     <!-- Toy Model -->
 
     <section class="card p-4">
 
-      <h2 class="h4">Toy model fields</h2>
+      <h2 class="h4">
+        Toy Model
+      </h2>
 
       <div class="table-responsive">
 
@@ -570,50 +818,62 @@
 
           <tbody>
 
+
             <tr>
               <td><code>name</code></td>
               <td>String</td>
-              <td>Required</td>
+              <td>Required, 2–99 characters</td>
             </tr>
+
 
             <tr>
               <td><code>info</code></td>
               <td>String</td>
-              <td>Required</td>
+              <td>Required, 2–99 characters</td>
             </tr>
+
 
             <tr>
               <td><code>category</code></td>
               <td>String</td>
-              <td>Required</td>
+              <td>Required, 2–99 characters</td>
             </tr>
+
 
             <tr>
               <td><code>img_url</code></td>
               <td>String</td>
-              <td>Optional</td>
+              <td>Optional, max 200 characters</td>
             </tr>
+
 
             <tr>
               <td><code>price</code></td>
               <td>Number</td>
-              <td>Required</td>
+              <td>Required, 1–999</td>
             </tr>
+
 
             <tr>
               <td><code>user_id</code></td>
               <td>String</td>
-              <td>Assigned from authenticated user</td>
+              <td>Assigned automatically from JWT</td>
             </tr>
 
+
             <tr>
-              <td>
-                <code>createdAt</code>,
-                <code>updatedAt</code>
-              </td>
+              <td><code>createdAt</code></td>
               <td>Date</td>
-              <td>Generated automatically by Mongoose</td>
+              <td>Generated automatically</td>
             </tr>
+
+
+            <tr>
+              <td><code>updatedAt</code></td>
+              <td>Date</td>
+              <td>Generated automatically</td>
+            </tr>
+
 
           </tbody>
 
@@ -623,12 +883,21 @@
 
     </section>
 
+
   </main>
 
 
+
+
+  <!-- Footer -->
+
   <footer class="container pb-4 text-center small">
-    Toys API · Project documentation
+
+    Toys API Documentation
+
   </footer>
 
+
 </body>
+
 </html>
